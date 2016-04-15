@@ -1,0 +1,55 @@
+{
+  "name": "hast-util-interactive",
+  "version": "0.0.0",
+  "description": "Check if a node is interactive",
+  "license": "MIT",
+  "keywords": [
+    "hast",
+    "html",
+    "element",
+    "category",
+    "interactive"
+  ],
+  "dependencies": {
+    "hast-util-has-property": "^1.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/hast-util-interactive.git"
+  },
+  "bugs": "https://github.com/wooorm/hast-util-interactive/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "eslint": "^2.0.0",
+    "esmangle": "^1.0.1",
+    "istanbul": "^0.4.0",
+    "jscs": "^3.0.0",
+    "jscs-jsdoc": "^2.0.0",
+    "remark": "^4.0.0",
+    "remark-comment-config": "^3.0.0",
+    "remark-github": "^4.0.1",
+    "remark-lint": "^3.0.0",
+    "remark-usage": "^3.0.0",
+    "remark-validate-links": "^3.0.0",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "build-md": "remark . --quiet --frail",
+    "build-bundle": "browserify index.js --bare -s hastUtilInteractive > hast-util-interactive.js",
+    "build-mangle": "esmangle hast-util-interactive.js > hast-util-interactive.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint-api": "eslint .",
+    "lint-style": "jscs --reporter inline .",
+    "lint": "npm run lint-api && npm run lint-style",
+    "test-api": "node test.js",
+    "test-coverage": "istanbul cover test.js",
+    "test": "npm run build && npm run lint && npm run test-coverage"
+  }
+}
