@@ -15,56 +15,40 @@ globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var interactive = require('hast-util-interactive');
-```
 
-Checks:
+interactive({
+  type: 'element',
+  tagName: 'a',
+  properties: {},
+  children: []
+}); //=> false
 
-```javascript
-var a = interactive({
-    'type': 'element',
-    'tagName': 'a',
-    'properties': {},
-    'children': []
-});
-var b = interactive({
-    'type': 'element',
-    'tagName': 'a',
-    'properties': {
-        'href': '#alpha'
-    },
-    'children': []
-});
-var c = interactive({
-    'type': 'element',
-    'tagName': 'video',
-    'properties': {
-        'controls': true
-    },
-    'children': []
-});
-```
+interactive({
+  type: 'element',
+  tagName: 'a',
+  properties: {href: '#alpha'},
+  children: []
+}); //=> true
 
-Yields:
-
-```txt
-a: false
-b: true
-c: true
+interactive({
+  type: 'element',
+  tagName: 'video',
+  properties: {controls: true},
+  children: []
+}); //=> true
 ```
 
 ## API
 
 ### `interactive(node)`
 
-**Parameters**:
+###### Parameters
 
 *   `node` ([`Node`][node], optional) — Node to check.
 
-**Returns**:
+###### Returns
 
 `boolean` — Whether `node` is an [`Element`][element] categorised
 as [**interactive**][spec].
