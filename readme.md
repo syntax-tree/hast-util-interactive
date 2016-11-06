@@ -10,9 +10,6 @@ Check whether a [HAST node][hast] is [**interactive**][spec].
 npm install hast-util-interactive
 ```
 
-**hast-util-interactive** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
-
 ## Usage
 
 ```javascript
@@ -68,8 +65,6 @@ as [**interactive**][spec].
 [coverage-page]: https://codecov.io/github/wooorm/hast-util-interactive?branch=master
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/hast-util-interactive/releases
 
 [license]: LICENSE
 
