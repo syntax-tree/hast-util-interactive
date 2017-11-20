@@ -1,9 +1,7 @@
 'use strict';
 
-/* Dependencies. */
 var has = require('hast-util-has-property');
 
-/* Expose. */
 module.exports = interactive;
 
 /* Always interactive nodes. */
