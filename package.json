@@ -10,7 +10,7 @@
     "category",
     "interactive"
   ],
-  "repository": "https://github.com/syntax-tree/hast-util-interactive",
+  "repository": "syntax-tree/hast-util-interactive",
   "bugs": "https://github.com/syntax-tree/hast-util-interactive/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
