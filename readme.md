@@ -50,6 +50,14 @@ interactive({
 `boolean` — Whether `node` is an [`Element`][element] categorised
 as [**interactive**][spec].
 
+## Contribute
+
+See [`contribute.md` in `syntax-tree/hast`][contribute] for ways to get
+started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -77,3 +85,7 @@ as [**interactive**][spec].
 [element]: https://github.com/syntax-tree/hast#element
 
 [spec]: https://html.spec.whatwg.org/#interactive-content
+
+[contribute]: https://github.com/syntax-tree/hast/blob/master/contributing.md
+
+[coc]: https://github.com/syntax-tree/hast/blob/master/code-of-conduct.md
