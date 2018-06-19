@@ -13,28 +13,28 @@ npm install hast-util-interactive
 ## Usage
 
 ```javascript
-var interactive = require('hast-util-interactive');
+var interactive = require('hast-util-interactive')
 
 interactive({
   type: 'element',
   tagName: 'a',
   properties: {},
   children: []
-}); //=> false
+}) // => false
 
 interactive({
   type: 'element',
   tagName: 'a',
   properties: {href: '#alpha'},
   children: []
-}); //=> true
+}) // => true
 
 interactive({
   type: 'element',
   tagName: 'video',
   properties: {controls: true},
   children: []
-}); //=> true
+}) // => true
 ```
 
 ## API

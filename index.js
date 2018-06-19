@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-var has = require('hast-util-has-property');
+var has = require('hast-util-has-property')
 
-module.exports = interactive;
+module.exports = interactive
 
 /* Always interactive nodes. */
 var INTERACTIVE = [
@@ -14,24 +14,26 @@ var INTERACTIVE = [
   'label',
   'select',
   'textarea'
-];
+]
 
 /* Check if `node` is _interactive_. */
 function interactive(node) {
-  var name;
+  var name
 
   if (!node || typeof node !== 'object' || node.type !== 'element') {
-    return false;
+    return false
   }
 
-  name = node.tagName;
+  name = node.tagName
 
-  return (name === 'a' && has(node, 'href')) ||
+  return (
+    (name === 'a' && has(node, 'href')) ||
     (name === 'audio' && has(node, 'controls')) ||
     (name === 'video' && has(node, 'controls')) ||
     (name === 'object' && has(node, 'useMap')) ||
     (name === 'img' && has(node, 'useMap')) ||
     (name === 'input' && (node.properties || {}).type !== 'hidden') ||
     has(node, 'tabIndex') ||
-    INTERACTIVE.indexOf(name) !== -1;
+    INTERACTIVE.indexOf(name) !== -1
+  )
 }
