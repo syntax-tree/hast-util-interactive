@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var interactive = require('./');
+var interactive = require('.');
 
 test('interactive', function (t) {
   t.equal(interactive(), false, 'should return `false` without node');
