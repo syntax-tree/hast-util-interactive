@@ -26,7 +26,7 @@
     "browserify": "^16.0.0",
     "esmangle": "^1.0.1",
     "nyc": "^13.0.0",
-    "prettier": "^1.13.5",
+    "prettier": "^1.15.1",
     "remark-cli": "^6.0.0",
     "remark-preset-wooorm": "^4.0.0",
     "tape": "^4.4.0",
