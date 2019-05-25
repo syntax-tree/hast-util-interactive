@@ -4,8 +4,8 @@ var has = require('hast-util-has-property')
 
 module.exports = interactive
 
-/* Always interactive nodes. */
-var INTERACTIVE = [
+// Always interactive nodes.
+var alwaysInteractive = [
   'button',
   'details',
   'embed',
@@ -16,7 +16,6 @@ var INTERACTIVE = [
   'textarea'
 ]
 
-/* Check if `node` is _interactive_. */
 function interactive(node) {
   var name
 
@@ -34,6 +33,6 @@ function interactive(node) {
     (name === 'img' && has(node, 'useMap')) ||
     (name === 'input' && (node.properties || {}).type !== 'hidden') ||
     has(node, 'tabIndex') ||
-    INTERACTIVE.indexOf(name) !== -1
+    alwaysInteractive.indexOf(name) !== -1
   )
 }
