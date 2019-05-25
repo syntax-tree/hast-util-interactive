@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-Check whether a [**hast**][hast] node is [*interactive*][spec].
+[**hast**][hast] utility to check whether a node is [*interactive*][spec].
 
 ## Install
 
