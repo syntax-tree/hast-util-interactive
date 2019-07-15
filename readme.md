@@ -58,6 +58,11 @@ interactive({
 `boolean` — Whether `node` is an [`Element`][element] categorised as
 [*interactive*][spec].
 
+## Security
+
+`hast-util-interactive` does not change the syntax tree so there are no openings
+for [cross-site scripting (XSS)][xss] attacks.
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
@@ -119,3 +124,5 @@ abide by its terms.
 [element]: https://github.com/syntax-tree/hast#element
 
 [spec]: https://html.spec.whatwg.org/#interactive-content
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
