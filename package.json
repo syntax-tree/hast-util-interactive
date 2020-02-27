@@ -1,10 +1,14 @@
 {
   "name": "hast-util-interactive",
   "version": "1.0.4",
-  "description": "Check if a node is interactive",
+  "description": "hast utility to check if a node is interactive",
   "license": "MIT",
   "keywords": [
+    "unist",
     "hast",
+    "hast-util",
+    "util",
+    "utility",
     "html",
     "element",
     "category",
