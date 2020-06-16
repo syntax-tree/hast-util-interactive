@@ -3,7 +3,7 @@
 var test = require('tape')
 var interactive = require('.')
 
-test('interactive', function(t) {
+test('interactive', function (t) {
   t.equal(interactive(), false, 'should return `false` without node')
   t.equal(interactive(null), false, 'should return `false` with `null`')
 
