@@ -2,6 +2,7 @@ import test from 'tape'
 import {interactive} from './index.js'
 
 test('interactive', function (t) {
+  // @ts-ignore runtime.
   t.equal(interactive(), false, 'should return `false` without node')
   t.equal(interactive(null), false, 'should return `false` with `null`')
 
