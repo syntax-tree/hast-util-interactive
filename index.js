@@ -1,11 +1,7 @@
-'use strict'
-
-var has = require('hast-util-has-property')
-
-module.exports = interactive
+import {hasProperty} from 'hast-util-has-property'
 
 // Always interactive nodes.
-var alwaysInteractive = [
+var alwaysInteractive = new Set([
   'button',
   'details',
   'embed',
@@ -14,9 +10,9 @@ var alwaysInteractive = [
   'label',
   'select',
   'textarea'
-]
+])
 
-function interactive(node) {
+export function interactive(node) {
   var name
 
   if (!node || typeof node !== 'object' || node.type !== 'element') {
@@ -26,13 +22,13 @@ function interactive(node) {
   name = node.tagName
 
   return (
-    (name === 'a' && has(node, 'href')) ||
-    (name === 'audio' && has(node, 'controls')) ||
-    (name === 'video' && has(node, 'controls')) ||
-    (name === 'object' && has(node, 'useMap')) ||
-    (name === 'img' && has(node, 'useMap')) ||
+    (name === 'a' && hasProperty(node, 'href')) ||
+    (name === 'audio' && hasProperty(node, 'controls')) ||
+    (name === 'video' && hasProperty(node, 'controls')) ||
+    (name === 'object' && hasProperty(node, 'useMap')) ||
+    (name === 'img' && hasProperty(node, 'useMap')) ||
     (name === 'input' && (node.properties || {}).type !== 'hidden') ||
-    has(node, 'tabIndex') ||
-    alwaysInteractive.indexOf(name) !== -1
+    hasProperty(node, 'tabIndex') ||
+    alwaysInteractive.has(name)
   )
 }

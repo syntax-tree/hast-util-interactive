@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var interactive = require('.')
+import test from 'tape'
+import {interactive} from './index.js'
 
 test('interactive', function (t) {
   t.equal(interactive(), false, 'should return `false` without node')

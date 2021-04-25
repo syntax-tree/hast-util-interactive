@@ -1,5 +1,2 @@
 coverage/
-hast-util-interactive.js
-hast-util-interactive.min.js
-*.json
 *.md
