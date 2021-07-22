@@ -6,7 +6,7 @@
 import {hasProperty} from 'hast-util-has-property'
 
 // Always interactive nodes.
-var alwaysInteractive = new Set([
+const alwaysInteractive = new Set([
   'button',
   'details',
   'embed',
@@ -22,14 +22,11 @@ var alwaysInteractive = new Set([
  * @returns {boolean}
  */
 export function interactive(node) {
-  /** @type {string} */
-  var name
-
   if (!node || typeof node !== 'object' || node.type !== 'element') {
     return false
   }
 
-  name = node.tagName
+  const name = node.tagName
 
   return (
     (name === 'a' && hasProperty(node, 'href')) ||

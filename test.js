@@ -1,7 +1,7 @@
 import test from 'tape'
 import {interactive} from './index.js'
 
-test('interactive', function (t) {
+test('interactive', (t) => {
   // @ts-expect-error runtime.
   t.equal(interactive(), false, 'should return `false` without node')
   // @ts-expect-error runtime.
