@@ -29,7 +29,6 @@ export function interactive(node) {
     return false
   }
 
-  // @ts-ignore looks like an element.
   name = node.tagName
 
   return (
@@ -38,7 +37,6 @@ export function interactive(node) {
     (name === 'video' && hasProperty(node, 'controls')) ||
     (name === 'object' && hasProperty(node, 'useMap')) ||
     (name === 'img' && hasProperty(node, 'useMap')) ||
-    // @ts-ignore looks like an element.
     (name === 'input' && (node.properties || {}).type !== 'hidden') ||
     hasProperty(node, 'tabIndex') ||
     alwaysInteractive.has(name)
