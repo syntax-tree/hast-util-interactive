@@ -13,6 +13,7 @@ test('interactive', function (t) {
   )
 
   t.equal(
+    // @ts-expect-error: partial.
     interactive({type: 'element'}),
     false,
     'should return `false` without `tagName`'
@@ -21,62 +22,104 @@ test('interactive', function (t) {
   t.equal(
     interactive({
       type: 'element',
-      properties: {tabIndex: -1}
+      tagName: 'x',
+      properties: {tabIndex: -1},
+      children: []
     }),
     true,
     'should return `true` for elements with `tabIndex`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'button'}),
+    interactive({
+      type: 'element',
+      tagName: 'button',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `button`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'details'}),
+    interactive({
+      type: 'element',
+      tagName: 'details',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `details`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'embed'}),
+    interactive({
+      type: 'element',
+      tagName: 'embed',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `embed`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'iframe'}),
+    interactive({
+      type: 'element',
+      tagName: 'iframe',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `iframe`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'keygen'}),
+    interactive({
+      type: 'element',
+      tagName: 'keygen',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `keygen`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'label'}),
+    interactive({
+      type: 'element',
+      tagName: 'label',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `label`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'select'}),
+    interactive({
+      type: 'element',
+      tagName: 'select',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `select`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'textarea'}),
+    interactive({
+      type: 'element',
+      tagName: 'textarea',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `textarea`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'a'}),
+    interactive({type: 'element', tagName: 'a', properties: {}, children: []}),
     false,
     'should return `false` for `a`'
   )
@@ -85,14 +128,20 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'a',
-      properties: {href: '#alpha'}
+      properties: {href: '#alpha'},
+      children: []
     }),
     true,
     'should return `true` for `a` with `href`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'audio'}),
+    interactive({
+      type: 'element',
+      tagName: 'audio',
+      properties: {},
+      children: []
+    }),
     false,
     'should return `false` for `audio`'
   )
@@ -101,14 +150,20 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'audio',
-      properties: {controls: true}
+      properties: {controls: true},
+      children: []
     }),
     true,
     'should return `true` for `audio` with `controls`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'video'}),
+    interactive({
+      type: 'element',
+      tagName: 'video',
+      properties: {},
+      children: []
+    }),
     false,
     'should return `false` for `video`'
   )
@@ -117,14 +172,20 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'video',
-      properties: {controls: true}
+      properties: {controls: true},
+      children: []
     }),
     true,
     'should return `true` for `video` with `controls`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'img'}),
+    interactive({
+      type: 'element',
+      tagName: 'img',
+      properties: {},
+      children: []
+    }),
     false,
     'should return `false` for `img`'
   )
@@ -133,14 +194,20 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'img',
-      properties: {useMap: '#bravo'}
+      properties: {useMap: '#bravo'},
+      children: []
     }),
     true,
     'should return `true` for `img` with `useMap`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'object'}),
+    interactive({
+      type: 'element',
+      tagName: 'object',
+      properties: {},
+      children: []
+    }),
     false,
     'should return `false` for `object`'
   )
@@ -149,14 +216,20 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'object',
-      properties: {useMap: '#bravo'}
+      properties: {useMap: '#bravo'},
+      children: []
     }),
     true,
     'should return `true` for `object` with `useMap`'
   )
 
   t.equal(
-    interactive({type: 'element', tagName: 'input'}),
+    interactive({
+      type: 'element',
+      tagName: 'input',
+      properties: {},
+      children: []
+    }),
     true,
     'should return `true` for `input`'
   )
@@ -165,7 +238,8 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'input',
-      properties: {type: 'hidden'}
+      properties: {type: 'hidden'},
+      children: []
     }),
     false,
     'should return `false` for `input` with `type` set to `hidden`'
@@ -175,7 +249,8 @@ test('interactive', function (t) {
     interactive({
       type: 'element',
       tagName: 'input',
-      properties: {type: 'reset'}
+      properties: {type: 'reset'},
+      children: []
     }),
     true,
     'should return `true` for `input` with `type` set to `reset`'

@@ -33,7 +33,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/unist": "^2.0.0",
+    "@types/hast": "^2.0.0",
     "hast-util-has-property": "^2.0.0"
   },
   "devDependencies": {

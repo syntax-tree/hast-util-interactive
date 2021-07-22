@@ -1,5 +1,6 @@
 /**
- * @typedef {import('unist').Node} Node
+ * @typedef {import('hast').Root} Root
+ * @typedef {Root['children'][number]|Root} Node
  */
 
 import {hasProperty} from 'hast-util-has-property'
