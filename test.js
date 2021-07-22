@@ -228,7 +228,6 @@ test('interactive', (t) => {
     interactive({
       type: 'element',
       tagName: 'input',
-      properties: {},
       children: []
     }),
     true,
