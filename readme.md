@@ -100,8 +100,18 @@ Check if the given value is [*interactive*][spec].
 
 ###### Returns
 
-Whether `node` is an [`Element`][element] categorised as [*interactive*][spec]
-(`boolean`).
+Whether `node` is an [`Element`][element] that is classified as *interactive
+content* (`boolean`).
+
+The following elements are interactive:
+
+*   `a` with `href`
+*   `audio` or `video` with `controls`
+*   `img` or `object` with `useMap`
+*   `input` without `hidden`
+*   any element with a `tabIndex`
+*   the elements `button`, `details`, `embed`, `iframe`, `keygen`, `label`,
+    `select`, and `textarea`
 
 ## Types
 
@@ -221,6 +231,6 @@ abide by its terms.
 
 [element]: https://github.com/syntax-tree/hast#element
 
-[spec]: https://html.spec.whatwg.org/#interactive-content
+[spec]: https://html.spec.whatwg.org/multipage/dom.html#interactive-content
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting

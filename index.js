@@ -1,6 +1,10 @@
 /**
  * @typedef {import('hast').Root} Root
- * @typedef {Root['children'][number]|Root} Node
+ * @typedef {import('hast').Content} Content
+ */
+
+/**
+ * @typedef {Root | Content} Node
  */
 
 import {hasProperty} from 'hast-util-has-property'
@@ -18,8 +22,23 @@ const alwaysInteractive = new Set([
 ])
 
 /**
+ * Check if the given value is *interactive content*.
+ *
  * @param {Node} node
+ *   Node to check.
  * @returns {boolean}
+ *   Whether `node` is an `Element` that is classified as *interactive
+ *   content*.
+ *
+ *   The following elements are interactive:
+ *
+ *   * `a` with `href`
+ *   * `audio` or `video` with `controls`
+ *   * `img` or `object` with `useMap`
+ *   * `input` without `hidden`
+ *   * any element with a `tabIndex`
+ *   * the elements `button`, `details`, `embed`, `iframe`, `keygen`, `label`,
+ *      `select`, and `textarea`
  */
 export function interactive(node) {
   if (!node || typeof node !== 'object' || node.type !== 'element') {
