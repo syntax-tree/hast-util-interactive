@@ -1,8 +1,15 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {interactive} from './index.js'
+import * as mod from './index.js'
 
 test('interactive', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['interactive'],
+    'should expose the public api'
+  )
+
   // @ts-expect-error runtime.
   assert.equal(interactive(), false, 'should return `false` without node')
   // @ts-expect-error runtime.
