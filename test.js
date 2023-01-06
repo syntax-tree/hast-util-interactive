@@ -1,26 +1,27 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {interactive} from './index.js'
 
-test('interactive', (t) => {
+test('interactive', () => {
   // @ts-expect-error runtime.
-  t.equal(interactive(), false, 'should return `false` without node')
+  assert.equal(interactive(), false, 'should return `false` without node')
   // @ts-expect-error runtime.
-  t.equal(interactive(null), false, 'should return `false` with `null`')
+  assert.equal(interactive(null), false, 'should return `false` with `null`')
 
-  t.equal(
+  assert.equal(
     interactive({type: 'text', value: 'alpha'}),
     false,
     'should return `false` without `element`'
   )
 
-  t.equal(
+  assert.equal(
     // @ts-expect-error: partial.
     interactive({type: 'element'}),
     false,
     'should return `false` without `tagName`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'x',
@@ -31,7 +32,7 @@ test('interactive', (t) => {
     'should return `true` for elements with `tabIndex`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'button',
@@ -42,7 +43,7 @@ test('interactive', (t) => {
     'should return `true` for `button`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'details',
@@ -53,7 +54,7 @@ test('interactive', (t) => {
     'should return `true` for `details`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'embed',
@@ -64,7 +65,7 @@ test('interactive', (t) => {
     'should return `true` for `embed`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'iframe',
@@ -75,7 +76,7 @@ test('interactive', (t) => {
     'should return `true` for `iframe`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'keygen',
@@ -86,7 +87,7 @@ test('interactive', (t) => {
     'should return `true` for `keygen`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'label',
@@ -97,7 +98,7 @@ test('interactive', (t) => {
     'should return `true` for `label`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'select',
@@ -108,7 +109,7 @@ test('interactive', (t) => {
     'should return `true` for `select`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'textarea',
@@ -119,13 +120,13 @@ test('interactive', (t) => {
     'should return `true` for `textarea`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({type: 'element', tagName: 'a', properties: {}, children: []}),
     false,
     'should return `false` for `a`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'a',
@@ -136,7 +137,7 @@ test('interactive', (t) => {
     'should return `true` for `a` with `href`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'audio',
@@ -147,7 +148,7 @@ test('interactive', (t) => {
     'should return `false` for `audio`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'audio',
@@ -158,7 +159,7 @@ test('interactive', (t) => {
     'should return `true` for `audio` with `controls`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'video',
@@ -169,7 +170,7 @@ test('interactive', (t) => {
     'should return `false` for `video`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'video',
@@ -180,7 +181,7 @@ test('interactive', (t) => {
     'should return `true` for `video` with `controls`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'img',
@@ -191,7 +192,7 @@ test('interactive', (t) => {
     'should return `false` for `img`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'img',
@@ -202,7 +203,7 @@ test('interactive', (t) => {
     'should return `true` for `img` with `useMap`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'object',
@@ -213,7 +214,7 @@ test('interactive', (t) => {
     'should return `false` for `object`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'object',
@@ -224,7 +225,7 @@ test('interactive', (t) => {
     'should return `true` for `object` with `useMap`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'input',
@@ -234,7 +235,7 @@ test('interactive', (t) => {
     'should return `true` for `input`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'input',
@@ -245,7 +246,7 @@ test('interactive', (t) => {
     'should return `false` for `input` with `type` set to `hidden`'
   )
 
-  t.equal(
+  assert.equal(
     interactive({
       type: 'element',
       tagName: 'input',
@@ -255,6 +256,4 @@ test('interactive', (t) => {
     true,
     'should return `true` for `input` with `type` set to `reset`'
   )
-
-  t.end()
 })
