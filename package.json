@@ -34,8 +34,8 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/hast": "^2.0.0",
-    "hast-util-has-property": "^2.0.0"
+    "@types/hast": "^3.0.0",
+    "hast-util-has-property": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
