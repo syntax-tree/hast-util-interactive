@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {interactive} from './index.js'
+import {interactive} from 'hast-util-interactive'
 
 test('interactive', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
-      'interactive'
-    ])
+    assert.deepEqual(
+      Object.keys(await import('hast-util-interactive')).sort(),
+      ['interactive']
+    )
   })
 
   await t.test('should return `false` without `element`', async function () {
