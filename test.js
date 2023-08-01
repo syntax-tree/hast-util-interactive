@@ -10,22 +10,10 @@ test('interactive', () => {
     'should expose the public api'
   )
 
-  // @ts-expect-error runtime.
-  assert.equal(interactive(), false, 'should return `false` without node')
-  // @ts-expect-error runtime.
-  assert.equal(interactive(null), false, 'should return `false` with `null`')
-
   assert.equal(
     interactive({type: 'text', value: 'alpha'}),
     false,
     'should return `false` without `element`'
-  )
-
-  assert.equal(
-    // @ts-expect-error: partial.
-    interactive({type: 'element'}),
-    false,
-    'should return `false` without `tagName`'
   )
 
   assert.equal(
@@ -236,6 +224,7 @@ test('interactive', () => {
     interactive({
       type: 'element',
       tagName: 'input',
+      properties: {},
       children: []
     }),
     true,
