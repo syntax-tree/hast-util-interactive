@@ -47,14 +47,14 @@ npm install hast-util-interactive
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {interactive} from 'https://esm.sh/hast-util-interactive@2'
+import {interactive} from 'https://esm.sh/hast-util-interactive@3'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {interactive} from 'https://esm.sh/hast-util-interactive@2?bundle'
+  import {interactive} from 'https://esm.sh/hast-util-interactive@3?bundle'
 </script>
 ```
 
